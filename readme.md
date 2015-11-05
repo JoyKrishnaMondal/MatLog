@@ -11,8 +11,8 @@ npm install matlog
 ###### How to Use
 
 1. `Init` allows you to customize the printing ( by passing a `JSON`)
---1. `MaxSigFig` - For Significant Figures.
---2. `Blanks`    - Spacing between columns.
+  1. `MaxSigFig` - For Significant Figures.
+  2. `Blanks`    - Spacing between columns.
 2. `PrintMat` pass your matrix into this function.
 
 
