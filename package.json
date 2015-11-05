@@ -1,0 +1,33 @@
+{
+  "name": "matlog",
+  "version": "0.0.1",
+  "description": "Tiny module to cleanly display matrices ",
+  "main": "MatLog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoyKrishnaMondal/MatLog.git",
+    "email":"joykrishnamondal@gmail.com"
+  },
+  "keywords": [
+    "Matrices",
+    "Logging",
+    "Array",
+    "Factorization"
+  ],
+  "author": "Joy Krishna Mondal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoyKrishnaMondal/MatLog/issues"
+  },
+  "homepage": "https://github.com/JoyKrishnaMondal/MatLog#readme",
+  "dependencies":
+  	{
+  		"cli-color":"1.1.0",
+  		"prelude-ls":"1.1.2",
+  		"median":"0.0.2",
+  	}
+  
+}
