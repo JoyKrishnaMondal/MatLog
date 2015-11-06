@@ -1,13 +1,25 @@
 ### MatLog : Display 2D matrixes cleanly
 
 MatLog is a tiny module to succiently view 2D matrices on the terminal.
+``
+matlog.PrintMat [[1,2,3][4,5,6]]
 
+> 1 3 4
+  2 3 5
+ *1e+0
+``
+``
+matlog.PrintMat [[0.5,0.4,0.24][123,0.00001,0.3]]
+
+>   5    4 2
+ 1e+3 1e-4 3
+*1e-1
+ ``
 ###### Installation
 
 ```
 npm install matlog
 ```
-
 ###### How to Use
 
 1. `Init` allows you to customize the printing ( by passing a `JSON`)
