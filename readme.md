@@ -1,4 +1,4 @@
-### MatLog : Display 2D matrixes cleanly
+### MatLog : Display 2D matrices cleanly
 
 MatLog is a tiny module to succiently view 2D matrices on the terminal.
 ```
