@@ -4,31 +4,38 @@ _ = require "prelude-ls"
 
 median = require "median"
 
+EOL = ((require "os").EOL)
+
+
 Main = {}
 
-Main.DocString =
+Main.DocString =->
 
-	"----------------------------------------------------------------------------------\n\n
+	Doc = "----------------------------------------------------------------------------------#{EOL}
 
-	MatrixDisplay is a tiny module to succiently view 2D matrices on the terminal. It comes with 2 functions - Init and PrintMat. \n \n
+	MatLog is a tiny module to succiently view 2D matrices on the terminal. It comes with 2 functions - Init and PrintMat. #{EOL + EOL}
 
-	Pass your 2D matrix to PrintMat to print the matrix on the terminal.\n\n
+	Pass your 2D matrix to PrintMat to print the matrix on the terminal.#{EOL + EOL}
 
-	Init allows you to customize the printing - you can control two variables by passing their values using a JSON.\n\n
+	Init allows you to customize the printing - you can control two variables by passing their values using a JSON.#{EOL + EOL}
 
-	1# MaxSigFig - For Significant Figures. \n
-	2# Blanks    - Spacing between columns. \n\n
+	1# MaxSigFig - For Significant Figures. #{EOL}
+	2# Blanks    - Spacing between columns. #{EOL + EOL}
 
-	The function PrintMat also factors out the most common exponent so you get to see the most relevant values - while saving space. \n\n
+	The function PrintMat also factors out the most common exponent so you get to see the most relevant values - while saving space. #{EOL + EOL}
 
 	---------------------------------------------------------------------------------- "
+
+	console.log Doc
+
+	return
 
 Main.MaxSigFig = 1
 
 Main.Blanks = 0
 
 
-Main.Init = (Json = {MaxSigFig:3,Blanks:0}) ->
+Main.Init = (Json = {MaxSigFig:1,Blanks:0}) ->
 
 
 	for Keys,Values of Json
@@ -47,7 +54,7 @@ Main.Init = (Json = {MaxSigFig:3,Blanks:0}) ->
 
 Main.CleanMat = (Mat) -> 
 	
-	SF = Main.MaxSigFig
+	SF = @MaxSigFig
 
 	I = 0
 
@@ -73,6 +80,13 @@ Main.CleanMat = (Mat) ->
 		I += 1
 
 	Mat
+
+FindExponent = (Num)->
+
+	OutCome = (Num.toExponential!).match /(.*)e(.*)/
+
+	_.map parseFloat, [OutCome[1],OutCome[2]]
+
 
 
 Main.ExpoAnalysis = (Matrix) ->
@@ -130,12 +144,6 @@ Main.ExpoAnalysis = (Matrix) ->
 
 	(DisplayMat:Output,Base:MedianBase)
 
-
-FindExponent = (Num)->
-
-	OutCome = (Num.toExponential!).match /(.*)e(.*)/
-
-	_.map parseInt, [OutCome[1],OutCome[2]]
 
 
 
@@ -242,20 +250,18 @@ Main.PrintMat = (Mat)->
 
 			
 			K += 1
-		# console.log "[" + CursorPos + " " + stdout.columns + "]"
+		
 		if (CursorPos%TerminalHorSize) > MinSizeForColon
-			EndLine = "; \n"
+			EndLine = "; " + EOL
 		else
-			EndLine = "\n"
+			EndLine = EOL
 
 		stdout.write EndLine
-		# console.log CursorPos
-		# console.log process.stdout.columns
 		
 		I += 1
 
-	Math.pow 10,Base |> (.toExponential!) |> ("*" +) |> stdout.write 
-
+	Math.pow 10,Base |> (x) -> "*" + x.toExponential! + EOL |>stdout.write 
+	console.log 
 	return
 
 Public = {}

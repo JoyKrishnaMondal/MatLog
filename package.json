@@ -1,6 +1,6 @@
 {
   "name": "matlog",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "Tiny module to cleanly display matrices ",
   "main": "./Compiled/MatLog.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoyKrishnaMondal/MatLog.git",
-    "email":"joykrishnamondal@gmail.com"
+    "email": "joykrishnamondal@gmail.com"
   },
   "keywords": [
     "Matrices",
@@ -17,17 +17,24 @@
     "Array",
     "Factorization"
   ],
-  "author": "Joy Krishna Mondal",
+  "author": {
+    "name": "Joy Krishna Mondal"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/JoyKrishnaMondal/MatLog/issues"
   },
   "homepage": "https://github.com/JoyKrishnaMondal/MatLog#readme",
-  "dependencies":
-  	{
-  		"cli-color":"1.1.0",
-  		"prelude-ls":"1.1.2",
-  		"median":"0.0.2"
-  	}
-  
+  "dependencies": {
+    "cli-color": "1.1.0",
+    "prelude-ls": "1.1.2",
+    "median": "0.0.2",
+    "simple-livescript-watch": "1.0.11"
+  },
+  "readme": "### MatLog : Display 2D matrices cleanly\r\n\r\nMatLog is a tiny module to succiently view 2D matrices on the terminal.\r\n```\r\nmatlog.PrintMat [[1,2,3][4,5,6]]\r\n\r\n> 1 3 4\r\n  2 3 5\r\n *1e+0\r\n```\r\n```\r\nmatlog.PrintMat [[0.5,0.4,0.24],[123,0.00001,0.3]]\r\n\r\n>   5    4 2\r\n 1e+3 1e-4 3\r\n*1e-1\r\n```\r\n###### Installation\r\n\r\n```\r\nnpm install matlog\r\n```\r\n###### How to Use\r\n\r\n1. `Init` allows you to customize the printing ( by passing a `JSON`)\r\n2. `PrintMat` pass your matrix into this function.\r\n\r\n\r\nThe function `PrintMat` also factors out the most common exponent so you get to see the most relevant values - while saving space. \r\n\r\n##### Init \r\n\r\nThere are two JSON values that can be controller using `Init`\r\n\r\n1. `MaxSigFig` - For Significant Figures.\r\n2. `Blanks`    - Spacing between columns.\r\n\r\n",
+  "readmeFilename": "readme.md",
+  "gitHead": "46830498227e2d92f53879277d6636436d2f50a8",
+  "_id": "matlog@0.0.7",
+  "_shasum": "ad4ea5e0efc80c7c7d70c1aaa6427f11e65c0b38",
+  "_from": "matlog@*"
 }
