@@ -23,7 +23,7 @@ Main.DocString =
 
 	---------------------------------------------------------------------------------- "
 
-Main.MaxSigFig = 3
+Main.MaxSigFig = 1
 
 Main.Blanks = 0
 
@@ -74,12 +74,6 @@ Main.CleanMat = (Mat) ->
 
 	Mat
 
-FindExponent = (Num)->
-
-	OutCome = (Num.toExponential!).match /(.*)e(.*)/
-
-	_.map parseInt, [OutCome[1],OutCome[2]]
-
 
 Main.ExpoAnalysis = (Matrix) ->
 
@@ -94,6 +88,7 @@ Main.ExpoAnalysis = (Matrix) ->
 	MedianBase = ExpoMat |> _.flatten |> median
 
 
+
 	Output = []
 	
 	{abs,pow} = Math
@@ -102,7 +97,8 @@ Main.ExpoAnalysis = (Matrix) ->
 	I = 0
 	Iₙ	 = ExpoMat.length
 
-	while I < Iₙ	
+	while I < Iₙ
+
 		Elem = ValAnPower[I]
 		Row = []
 		K = 0
@@ -111,9 +107,10 @@ Main.ExpoAnalysis = (Matrix) ->
 		while K < Kₙ
 
 			X = Elem[K]
+
 			ColPower = X[1] - MedianBase
 
-			DPValue = X[0]*pow 10,ColPower
+			DPValue = parseFloat ((X[0]*pow 10,ColPower).toPrecision SF)
 
 			if (abs ColPower) > SF
 
@@ -132,6 +129,14 @@ Main.ExpoAnalysis = (Matrix) ->
 		I += 1
 
 	(DisplayMat:Output,Base:MedianBase)
+
+
+FindExponent = (Num)->
+
+	OutCome = (Num.toExponential!).match /(.*)e(.*)/
+
+	_.map parseInt, [OutCome[1],OutCome[2]]
+
 
 
 Main.FindMaxColumnLength = (Mat) ->

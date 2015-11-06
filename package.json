@@ -2,7 +2,7 @@
   "name": "matlog",
   "version": "0.0.1",
   "description": "Tiny module to cleanly display matrices ",
-  "main": "MatLog.js",
+  "main": "./Compiled/MatLog.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,7 +27,7 @@
   	{
   		"cli-color":"1.1.0",
   		"prelude-ls":"1.1.2",
-  		"median":"0.0.2",
+  		"median":"0.0.2"
   	}
   
 }
