@@ -13,16 +13,16 @@ Main.DocString =->
 
 	Doc = "----------------------------------------------------------------------------------#{EOL}
 
-	MatLog is a tiny module to succiently view 2D matrices on the terminal. It comes with 2 functions - Init and PrintMat. #{EOL + EOL}
+	MatLog is a tiny module to succiently view 2D matrices on the terminal. It comes with 2 functions - Init and mlog. #{EOL + EOL}
 
-	Pass your 2D matrix to PrintMat to print the matrix on the terminal.#{EOL + EOL}
+	Pass your 2D matrix to mlog to print the matrix on the terminal.#{EOL + EOL}
 
 	Init allows you to customize the printing - you can control two variables by passing their values using a JSON.#{EOL + EOL}
 
 	1# MaxSigFig - For Significant Figures. #{EOL}
 	2# Blanks    - Spacing between columns. #{EOL + EOL}
 
-	The function PrintMat also factors out the most common exponent so you get to see the most relevant values - while saving space. #{EOL + EOL}
+	The function mlog also factors out the most common exponent so you get to see the most relevant values - while saving space. #{EOL + EOL}
 
 	---------------------------------------------------------------------------------- "
 
@@ -191,7 +191,7 @@ Main.FindMaxColumnLength = (Mat) ->
 		"MaxRowSize":MaxRowSize
 
 
-Main.PrintMat = (Mat)->
+Main.mlog = (Mat)->
 
 	if !((Array.isArray Mat[0]) is true)
 		console.log Mat # Function defaults to normal displaying if 1D Array.
@@ -270,6 +270,6 @@ Public.DocString = Main.DocString
 
 Public.Init = Main.Init.bind Main
 
-Public.PrintMat = Main.PrintMat.bind Main
+Public.mlog = Main.mlog.bind Main
 
 module.exports = Public
