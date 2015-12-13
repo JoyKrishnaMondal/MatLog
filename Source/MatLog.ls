@@ -30,7 +30,7 @@ Main.DocString =->
 
 	return
 
-Main.MaxSigFig = 1
+Main.MaxSigFig = 3
 
 Main.Blanks = 0
 
@@ -99,7 +99,7 @@ Main.ExpoAnalysis = (Matrix) ->
 	ExpoMat      =  ValAnPower  |> dLoop (x) -> x[1]
 
 
-	MedianBase = ExpoMat |> _.flatten |> median
+	MedianBase = ExpoMat |> _.flatten |> median |> Math.floor
 
 
 
@@ -194,7 +194,9 @@ Main.FindMaxColumnLength = (Mat) ->
 Main.mlog = (Mat)->
 
 	if !((Array.isArray Mat[0]) is true)
+
 		console.log Mat # Function defaults to normal displaying if 1D Array.
+
 		return
 
 	{DisplayMat,Base} =  Mat |> @CleanMat |> @ExpoAnalysis
@@ -261,15 +263,19 @@ Main.mlog = (Mat)->
 		I += 1
 
 	Math.pow 10,Base |> (x) -> "*" + x.toExponential! + EOL |>stdout.write 
-	console.log 
+
 	return
 
 Public = {}
 
 Public.DocString = Main.DocString
 
+
 Public.Init = Main.Init.bind Main
 
 Public.mlog = Main.mlog.bind Main
 
 module.exports = Public
+
+
+Public.mlog [[1,2,3],[10,11,11]]
